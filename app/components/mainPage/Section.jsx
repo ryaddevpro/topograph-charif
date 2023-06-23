@@ -1,10 +1,11 @@
 import dynamic from "next/dynamic";
 import React from "react";
-import Card from "../Card";
+import Card from "../cardModels/Card1";
 import Image from "next/image";
+import CardChoice from "../cardModels/CardChoice";
 
 const Section = () => {
-  const tabs = [
+  const Excellence = [
     {
       icon: "Plus de 26 ans d'expérience",
       label:
@@ -22,7 +23,7 @@ const Section = () => {
     },
   ];
   return (
-    <>
+    <section className="my-44">
       <div className="flex  justify-center flex-col flex-wrap items-center gap-4 ">
         <h1 className="text-3xl">Pourquoi nous choisir?</h1>
         <p className="text-2xl">
@@ -31,7 +32,7 @@ const Section = () => {
       </div>
       <div className="">
         <div className="flex justify-center flex-wrap gap-10 my-10">
-          <Card tabs={tabs} />
+          <Card tabs={Excellence} />
         </div>
       </div>
       <br />
@@ -40,25 +41,16 @@ const Section = () => {
       <br />
       <br />
       <br />
-      <section class="mx-auto w-fit p-12">
-        <div class="w-72 h-fit group">
-          <div class="relative overflow-hidden">
-            <Image
-              class="h-96 w-full object-cover"
-              src="/images_/scanner.jpg"
-              width={200}
-              height={200}
-              alt=""
-            />
-            <div class="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <button class=" text-white py-2 px-5 text-3xl">
-                Scan et modélisation 3D
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      <div className="flex flex-wrap justify-center gap-5 w-10/12 mx-auto">
+        <CardChoice />
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </section>
   );
 };
 
