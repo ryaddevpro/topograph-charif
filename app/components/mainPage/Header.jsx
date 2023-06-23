@@ -7,16 +7,22 @@ const Header = () => {
   return (
     <>
       <header className="w-full relative">
-        <div className=" mx-auto">
-          <video
-            className="w-full h-auto md:h-96 object-cover"
-            autoPlay
-            muted
-            loop
-          >
-            <source src={videoSource} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        <div className="mx-auto">
+          <div className="relative">
+            <video
+              className="w-full h-auto md:h-96 object-cover"
+              autoPlay
+              muted
+              loop
+            >
+              <source src={videoSource} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="flex justify-center items-center h-full absolute inset-0">
+              <h1 className="text-4xl text-white">topo graph charif</h1>
+            </div>
+          </div>
         </div>
       </header>
       <div className="mt-8"></div>
