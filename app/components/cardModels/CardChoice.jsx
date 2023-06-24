@@ -34,8 +34,8 @@ const CardChoice = () => {
                 </button>
                 <div>
                   <h3 className="font-bold text-lg text-center">BIM </h3>
-                  <div className="flex flex-wrap m-5">
-                    <div className=" relative">
+                  <div className="flex flex-wrap m-5 justify-center">
+                    <div className="my-auto py-5">
                       <Image
                         src={"/images_/scanner.jpg"}
                         width={200}
@@ -43,7 +43,7 @@ const CardChoice = () => {
                         alt=""
                       />
                     </div>
-                    <div className="mx-10 w-8/12">
+                    <div className="sm:mx-0 md:mx-10 lg:mx-10 sm:w-full md:w-6/12 lg:w-8/12">
                       <div className="">
                         En tant que maître d’œuvre de projets publics ou privés,
                         ETAFAT Ing assure toutes les missions de conception
