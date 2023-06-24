@@ -39,7 +39,7 @@ const CardChoice = () => {
                 <div className="flex flex-wrap m-5">
                   <div className=" relative">
                     <Image
-                      src={"/images_x/scanner.jpg"}
+                      src={"/images_/scanner.jpg"}
                       width={200}
                       height={200}
                       alt=""
