@@ -32,43 +32,44 @@ const CardChoice = () => {
                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                   ✕
                 </button>
-
-                <h3 className="font-bold text-lg text-center">
-                  titre de la specialite!
-                </h3>
-                <div className="flex flex-wrap m-5">
-                  <div className=" relative">
-                    <Image
-                      src={"/images_/scanner.jpg"}
-                      width={200}
-                      height={200}
-                      alt=""
-                    />
-                  </div>
-                  <div className="mx-auto w-80">
-                    <div className="">
-                      En tant que maître d’œuvre de projets publics ou privés,
-                      ETAFAT Ing assure toutes les missions de conception
-                      technique, planification, organisation et direction
-                      d’exécution d’un bâtiment ou d’un projet d’infrastructure,
-                      jusqu’à sa livraison. Enfin, ETAFAT Ing offre des services
-                      d’assistance à la mise en service, à l’exploitation et à
-                      la maintenance des ouvrages.
+                <div>
+                  <h3 className="font-bold text-lg text-center">BIM </h3>
+                  <div className="flex flex-wrap m-5">
+                    <div className=" relative">
+                      <Image
+                        src={"/images_/scanner.jpg"}
+                        width={200}
+                        height={200}
+                        alt=""
+                      />
                     </div>
-                    <div className="my-2">
-                      <b>Nos domaines d’activités portent sur :</b>
+                    <div className="mx-10 w-8/12">
+                      <div className="">
+                        En tant que maître d’œuvre de projets publics ou privés,
+                        ETAFAT Ing assure toutes les missions de conception
+                        technique, planification, organisation et direction
+                        d’exécution d’un bâtiment ou d’un projet
+                        d’infrastructure, jusqu’à sa livraison. Enfin, ETAFAT
+                        Ing offre des services d’assistance à la mise en
+                        service, à l’exploitation et à la maintenance des
+                        ouvrages.
+                      </div>
+                      <div className="my-2">
+                        <b>Nos domaines d’activités portent sur :</b>
+                      </div>
+                      <div className="mx-5">
+                        <ul className="list-disc	break-words w-">
+                          <li>Les terrassements généraux</li>
+                          <li>La voirie, passages, carrefours, giratoires,</li>
+                          <li>
+                            Les réseaux d’assainissement, (eaux pluviales, eaux
+                            usées),
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <ul className="list-disc	break-words w-">
-                      <li>Les terrassements généraux</li>
-                      <li>La voirie, passages, carrefours, giratoires,</li>
-                      <li>
-                        Les réseaux d’assainissement, (eaux pluviales, eaux
-                        usées),
-                      </li>
-                    </ul>
                   </div>
                 </div>
-
                 <div className="modal-action">
                   {/* if there is a button in form, it will close the modal */}
                 </div>
