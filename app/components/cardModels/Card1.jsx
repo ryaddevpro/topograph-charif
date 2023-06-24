@@ -1,20 +1,12 @@
-"use client";
-import React, { useEffect } from "react";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React from "react";
 import { BoxMotion } from "../boxMotion/BoxMotion";
+
 const squareVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   hidden: { opacity: 0, scale: 0 },
 };
+
 export default function Card({ tabs }) {
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
   return (
     <>
       {tabs.map((item, index) => {
