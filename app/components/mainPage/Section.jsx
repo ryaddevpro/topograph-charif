@@ -30,17 +30,9 @@ const Section = () => {
           Notre société a une expercience d&apos;une vingtaine d&apos;année
         </p>
       </div>
-      <div className="">
-        <div className="flex justify-center flex-wrap gap-10 my-10">
-          <Card tabs={Excellence} />
-        </div>
+      <div className="flex justify-center flex-wrap gap-10 my-10">
+        <Card tabs={Excellence} />
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <div className="flex flex-wrap justify-center gap-5 w-10/12 mx-auto">
         <CardChoice />
       </div>

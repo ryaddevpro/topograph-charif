@@ -18,11 +18,7 @@ export default function Card({ tabs }) {
     <>
       {tabs.map((item, index) => {
         return (
-          <motion.div
-            ref={ref}
-            animate={controls}
-            initial="hidden"
-            variants={squareVariants}
+          <div
             key={index}
             className=" max-w-sm rounded overflow-hidden shadow-lg bg-white hover:bg-gray-200 transition duration-300"
           >
@@ -30,7 +26,7 @@ export default function Card({ tabs }) {
               <div className="font-bold text-xl mb-2">{item.icon} </div>
               <p className="text-gray-700 text-base">{item.label}</p>
             </div>
-          </motion.div>
+          </div>
         );
       })}
     </>

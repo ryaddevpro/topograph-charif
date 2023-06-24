@@ -1,39 +1,48 @@
 "use client";
-import React, { useEffect } from "react";
-import { useAnimation, motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-const squareVariants = {
-  visible: { opacity: 1, scale: 2, transition: { duration: 1 } },
-  hidden: { opacity: 0, scale: 1 },
+import { useEffect } from "react";
+
+const boxVariant = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, scale: 0 },
 };
-function Square() {
-  const controls = useAnimation();
+
+const Box = ({ num }) => {
+  const control = useAnimation();
   const [ref, inView] = useInView();
+
   useEffect(() => {
     if (inView) {
-      controls.start("visible");
+      control.start("visible");
+    } else {
+      control.start("hidden");
     }
-  }, [controls, inView]);
+  }, [control, inView]);
+
   return (
     <motion.div
+      className="border border-black  mx-auto w-56 h-56"
       ref={ref}
-      animate={controls}
+      variants={boxVariant}
       initial="hidden"
-      variants={squareVariants}
-      className=" w-56 h-56 mx-auto mt-96"
+      animate={control}
     >
-      
+      <h1>Box {num} </h1>
     </motion.div>
   );
-}
+};
+
 export default function Page() {
   return (
     <div className="App">
-      <h1 className="title">Scroll Down</h1>
-      <Square />
-      <Square />
-      <Square />
-      <Square />
+      {[1, 2, 3].map((x) => {
+        return (
+          <>
+            <Box num={x} />
+          </>
+        );
+      })}
     </div>
   );
 }
