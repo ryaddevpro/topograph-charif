@@ -13,7 +13,7 @@ const Modal = ({ modalId, title, image, text, list }) => {
         </button>
         <div>
           <h3 className="font-bold text-lg text-center"> {title}</h3>
-          <div className="flex flex-wrap m-5 justify-center">
+          <div className="flex flex-wrap sm:m-5 justify-center">
             <div className="my-auto py-5">
               {<Image src={image} width={200} height={200} alt="" />}
             </div>
