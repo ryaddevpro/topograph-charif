@@ -13,22 +13,39 @@ const CardChoice = () => {
     {
       name: "Photogrammetrie",
       image: "/images_/photogrametrie.png",
-      text: `
-    Procédant avec une vision globale du territoire, notre équipe maîtrise parfaitement les outils d’aide à la décision dédiée exclusivement aux études foncières, au cadastre, et à l’immobilier notamment la copropriété ,l’expropriation, les pré notations et la taxe sur Terrain-Non-Bâti (T.N.B).
-    Nos prestations de la topographie cadastrale couvrent la réalisation de :`,
-      list: [
-        `Plan de situation, Plan de délimitation administrative, Plan de partage`,
-        `Plan et enquête parcellaire`,
-        `Immatriculation foncière`,
-        `Immatriculation foncière et Immatriculation Foncière d’Ensemble (IFE)`,
-        `Mise en concordance,Copropriété et Morcellement`,
-      ],
+      text: ``,
+      list: [``],
     },
-    { name: "Scan et modélisation 3D", image: "/images_/scanner.jpg" },
-    { name: "Topographies", image: "/images_/suivi.jpg" },
-    { name: "BIM", image: "/images_/BIM_.jpg" },
-    { name: "Foncier", image: "/images_/cadastre.jpg" },
-    { name: "SIG", image: "/images_/SIG.jpg" },
+    {
+      name: "Scan et modélisation 3D",
+      image: "/images_/scanner.jpg",
+      text: ``,
+      list: [``],
+    },
+    {
+      name: "Topographies",
+      image: "/images_/suivi.jpg",
+      text: ``,
+      list: [``],
+    },
+    {
+      name: "BIM",
+      image: "/images_/BIM_.jpg",
+      text: ``,
+      list: [``],
+    },
+    {
+      name: "Foncier",
+      image: "/images_/cadastre.jpg",
+      text: ``,
+      list: [``],
+    },
+    {
+      name: "SIG",
+      image: "/images_/SIG.jpg",
+      text: ``,
+      list: [``],
+    },
   ];
 
   return (

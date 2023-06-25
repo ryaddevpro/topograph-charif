@@ -3,6 +3,7 @@ import React from "react";
 import Card from "../cardModels/Card1";
 import Image from "next/image";
 import CardChoice from "../cardModels/CardChoice";
+import Link from "next/link";
 
 const Section = () => {
   const Excellence = [
@@ -33,6 +34,9 @@ const Section = () => {
       <div className="flex justify-center flex-wrap gap-10 my-10">
         <Card tabs={Excellence} />
       </div>
+      <div className=" text-center my-10">
+        <h1 className="text-3xl ">Nos Domaines d&apos;Expertises</h1>
+      </div>
       <div className="flex flex-wrap justify-center gap-5 w-10/12 mx-auto">
         <CardChoice />
       </div>
@@ -40,6 +44,30 @@ const Section = () => {
       <br />
       <br />
       <br />
+
+      {/* bg-[url('/images/banner2.jpg')]  */}
+      <div
+        className="w-10/12 bg-cover bg-center mx-auto rounded-3xl"
+        style={{
+          height: "20rem",
+          backgroundImage: "url(/images/banner2.jpg)",
+        }}
+      >
+        <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50  rounded-3xl">
+          <div className="text-center">
+            <h1 className="text-white text-2xl font-semibold uppercase md:text-3xl">
+              Pour plus d&apos;informations{" "}
+            </h1>
+            <Link
+              href={"/contact"}
+              className="mt-4 px-4 py-2 bg-indigo-600 text-white text-sm uppercase font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-blue-500"
+            >
+              Contact US
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <br />
       <br />
     </section>
