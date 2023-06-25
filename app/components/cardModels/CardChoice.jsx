@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { BoxMotion } from "../boxMotion/BoxMotion";
-import Modal from "../modal";
+import Modal from "../Modal";
 
 const squareVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
