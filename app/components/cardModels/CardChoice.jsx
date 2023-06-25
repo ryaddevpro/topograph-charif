@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { BoxMotion } from "../boxMotion/BoxMotion";
+import Modal from "../modal";
 
 const squareVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
@@ -9,7 +10,20 @@ const squareVariants = {
 
 const CardChoice = () => {
   const nosDomaine = [
-    { name: "Photogrammetrie", image: "/images_/photogrametrie.png" },
+    {
+      name: "Photogrammetrie",
+      image: "/images_/photogrametrie.png",
+      text: `
+    Procédant avec une vision globale du territoire, notre équipe maîtrise parfaitement les outils d’aide à la décision dédiée exclusivement aux études foncières, au cadastre, et à l’immobilier notamment la copropriété ,l’expropriation, les pré notations et la taxe sur Terrain-Non-Bâti (T.N.B).
+    Nos prestations de la topographie cadastrale couvrent la réalisation de :`,
+      list: [
+        `Plan de situation, Plan de délimitation administrative, Plan de partage`,
+        `Plan et enquête parcellaire`,
+        `Immatriculation foncière`,
+        `Immatriculation foncière et Immatriculation Foncière d’Ensemble (IFE)`,
+        `Mise en concordance,Copropriété et Morcellement`,
+      ],
+    },
     { name: "Scan et modélisation 3D", image: "/images_/scanner.jpg" },
     { name: "Topographies", image: "/images_/suivi.jpg" },
     { name: "BIM", image: "/images_/BIM_.jpg" },
@@ -21,64 +35,16 @@ const CardChoice = () => {
     <>
       {nosDomaine.map((x, index) => {
         const modalId = `my_modal_${index + 1}`;
-
         return (
           <BoxMotion key={index} variants={squareVariants} initial="hidden">
-            <dialog id={modalId} className="modal border border-black w-full">
-              <form
-                method="dialog"
-                className="modal-box max-w-full    border-8 border-black"
-              >
-                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                  ✕
-                </button>
-                <div>
-                  <h3 className="font-bold text-lg text-center">BIM </h3>
-                  <div className="flex flex-wrap m-5 justify-center">
-                    <div className="my-auto py-5">
-                      <Image
-                        src={"/images_/scanner.jpg"}
-                        width={200}
-                        height={200}
-                        alt=""
-                      />
-                    </div>
-                    <div className="sm:mx-0 md:mx-10 lg:mx-10 sm:w-full md:w-6/12 lg:w-8/12">
-                      <div className="">
-                        En tant que maître d’œuvre de projets publics ou privés,
-                        ETAFAT Ing assure toutes les missions de conception
-                        technique, planification, organisation et direction
-                        d’exécution d’un bâtiment ou d’un projet
-                        d’infrastructure, jusqu’à sa livraison. Enfin, ETAFAT
-                        Ing offre des services d’assistance à la mise en
-                        service, à l’exploitation et à la maintenance des
-                        ouvrages.
-                      </div>
-                      <div className="my-2">
-                        <b>Nos domaines d’activités portent sur :</b>
-                      </div>
-                      <div className="mx-5">
-                        <ul className="list-disc	break-words w-">
-                          <li>Les terrassements généraux</li>
-                          <li>La voirie, passages, carrefours, giratoires,</li>
-                          <li>
-                            Les réseaux d’assainissement, (eaux pluviales, eaux
-                            usées),
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="modal-action">
-                  {/* if there is a button in form, it will close the modal */}
-                </div>
-              </form>
-              <form method="dialog" className="modal-backdrop">
-                <button>close</button>
-              </form>
-            </dialog>
             {/* Open the modal using ID.showModal() method */}
+            <Modal
+              modalId={modalId}
+              title={x.name}
+              image={x.image}
+              text={x.text}
+              list={x.list}
+            />
             <div
               className="relative overflow-hidden w-72 h-fit group cursor-pointer"
               onClick={() => document.getElementById(modalId).showModal()}

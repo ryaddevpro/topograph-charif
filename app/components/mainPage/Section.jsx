@@ -24,9 +24,9 @@ const Section = () => {
   ];
   return (
     <section className="my-44">
-      <div className="flex  justify-center flex-col flex-wrap items-center gap-4 ">
+      <div className="flex  justify-center flex-col flex-wrap items-center gap-4 text-center ">
         <h1 className="text-3xl">Pourquoi nous choisir?</h1>
-        <p className="text-2xl">
+        <p className="text-2xl ">
           Notre société a une expercience d&apos;une vingtaine d&apos;année
         </p>
       </div>
