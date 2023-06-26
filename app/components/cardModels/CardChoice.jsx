@@ -76,8 +76,8 @@ const CardChoice = () => {
                 />
                 <div className="absolute inset-0 bg-black opacity-50"></div>
                 <div className="absolute inset-0 flex items-center justify-center ">
-                  <div className="w-11/12">
-                    <h1 className="text-white text-2xl font-bold text-center">
+                  <div className=" ">
+                    <h1 className="text-white text-2xl font-bold text-center w-auto border p-1 rounded-md  hover:bg-indigo-600 ">
                       {x.name}
                     </h1>
                   </div>
