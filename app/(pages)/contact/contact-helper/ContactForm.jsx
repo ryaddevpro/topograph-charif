@@ -13,12 +13,14 @@ const ContactForm = () => {
     reset,
   } = useForm();
 
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
   const onSubmit = async (data) => {
     const formData = { ...data, filesAttachments: [] };
 
     try {
       await Promise.all(
-        Array.from(data.filesAttachments).map(async (file) => {
+        Array.from(selectedFiles).map(async (file) => {
           const base64 = await readFileAsync(file);
           formData.filesAttachments.push(base64);
         })
@@ -37,6 +39,18 @@ const ContactForm = () => {
     reset();
   };
 
+  const handleFileChange = (event) => {
+    const files = event.target.files;
+    const maxFiles = 3;
+
+    if (files.length <= maxFiles) {
+      setSelectedFiles([...selectedFiles, ...files]);
+    } else {
+      alert(`You can only select a maximum of ${maxFiles} files.`);
+      event.target.value = null;
+    }
+  };
+
   const readFileAsync = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -49,7 +63,6 @@ const ContactForm = () => {
       reader.readAsDataURL(file);
     });
   };
-
   return (
     <>
       <form className="md:col-span-8 p-10" onSubmit={handleSubmit(onSubmit)}>
@@ -97,21 +110,29 @@ const ContactForm = () => {
           </div>
 
           <div className="flex sm:justify-end lg:justify-between  md:justify-end justify-end  flex-wrap gap-3 w-full px-3 mt-4">
-            <div>
+            <div className="w-full">
+              <label htmlFor="" className="text-sm italic">
+                si vous voulez envoyez un fichier (image, pdf, word...)
+                <br />
+                maximum 3 fichier
+                <br />
+              </label>
               <input
                 type="file"
                 className="file-input file-input-bordered file-input-primary w-full max-w-xs"
                 multiple
                 {...register("filesAttachments")}
+                onChange={handleFileChange} // Added onChange event handler
               />
             </div>
-
-            <button
-              className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-              type="submit"
-            >
-              Envoyez
-            </button>
+            <div className="w-full flex justify-end">
+              <button
+                className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                type="submit"
+              >
+                Envoyez
+              </button>
+            </div>
           </div>
         </div>
       </form>

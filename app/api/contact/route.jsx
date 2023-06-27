@@ -5,11 +5,16 @@ let nodemailer = require("nodemailer");
 export const POST = async (req, res) => {
   try {
     const body = await req.json();
-
     const { nom, prenom, email, msg, filesAttachments } = body;
     if (!nom || !prenom || !email || !msg) {
       return NextResponse.json(
         { msg: "veuillez saisir tous les champs" },
+        { status: 500 }
+      );
+    }
+    if (filesAttachments.length > 3) {
+      return NextResponse.json(
+        { msg: "La limite des fichier est de 3 fichiers maximum" },
         { status: 500 }
       );
     }
