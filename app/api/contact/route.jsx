@@ -7,6 +7,12 @@ export const POST = async (req, res) => {
     const body = await req.json();
 
     const { nom, prenom, email, msg, filesAttachments } = body;
+    if (!nom || !prenom || !email || !msg) {
+      return NextResponse.json(
+        { msg: "veuillez saisir tous les champs" },
+        { status: 500 }
+      );
+    }
 
     const filePath = filesAttachments.map((x, index) => {
       return { path: x };
@@ -39,10 +45,13 @@ export const POST = async (req, res) => {
     try {
       // let info = await transporter.sendMail(message);
 
-      return NextResponse.json({ msg: "Email sent" }, { status: 200 });
+      return NextResponse.json(
+        { msg: "Email envoyez avec success" },
+        { status: 200 }
+      );
     } catch (err) {
       return NextResponse.json(
-        { msg: "Something went wrong" },
+        { msg: "une Erreur est survenue, veuillez reessayer ulterieurement" },
         { status: 500 }
       );
     }
