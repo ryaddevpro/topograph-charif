@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "buildstart": "npm run build && npm run start"
+    "buildstart": "npm run build && npm run start",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
@@ -18,6 +19,7 @@
     "flowbite-react": "^0.4.9",
     "framer-motion": "^10.12.17",
     "next": "13.4.7",
+    "next-sitemap": "^4.1.3",
     "nodemailer": "^6.9.3",
     "postcss": "8.4.24",
     "react": "18.2.0",

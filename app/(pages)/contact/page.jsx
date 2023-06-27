@@ -2,7 +2,9 @@ import React from "react";
 
 import ContactInfo from "./contact-helper/ContactInfo";
 import ContactForm from "./contact-helper/ContactForm";
-
+export const metadata = {
+  title: "Contact",
+};
 const Page = () => {
   return (
     <div>
