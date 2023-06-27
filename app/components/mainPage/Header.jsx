@@ -20,7 +20,9 @@ const Header = () => {
             </video>
             <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="flex justify-center items-center h-full absolute inset-0">
-              <h1 className="text-4xl text-white">Millenium Topo CHARIF MED</h1>
+              <h1 className="text-4xl text-white text-center">
+                Millenium Topo CHARIF MED
+              </h1>
             </div>
           </div>
         </div>
