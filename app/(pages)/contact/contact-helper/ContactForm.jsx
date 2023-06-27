@@ -3,12 +3,14 @@ import React, { useEffect, useRef, useState } from "react";
 
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { InputForm, InputTextArea } from "./InputForm";
+// import InputForm from "./InputForm";
 const ContactForm = () => {
-  const [error, setError] = useState("");
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -32,6 +34,7 @@ const ContactForm = () => {
       console.log(error);
       // Handle error
     }
+    reset();
   };
 
   const readFileAsync = (file) => {
@@ -52,93 +55,45 @@ const ContactForm = () => {
       <form className="md:col-span-8 p-10" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-first-name"
-            >
-              Nom{" "}
-            </label>
-            <input
-              className="appearance-none bg-transparent border-b w-full text-gray-700 mr-3 p-4 leading-tight focus:outline-none focus:bg-gray-200"
-              type="text"
-              id="nom"
-              placeholder="Votre nom..."
-              aria-label="Full name"
-              {...register("nom", { required: "Votre nom est requis" })}
+            <InputForm
+              register={register}
+              errors={errors}
+              label={"nom"}
+              msgError={"veuillez saisir votre nom"}
+              placeholder="votre nom..."
             />
-            {errors.nom && (
-              <p role="alert" className="text-red-500 text-xs italic mt-1">
-                {errors.nom?.message}
-              </p>
-            )}
           </div>
+
           <div className="w-full md:w-1/2 px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-last-name"
-            >
-              Prenom
-            </label>
-            <input
-              className="appearance-none bg-transparent border-b  w-full text-gray-700 mr-3 p-4 leading-tight focus:outline-none focus:bg-gray-200"
-              type="text"
-              id="prenom"
-              placeholder="Votre prenom..."
-              aria-label="Full name"
-              {...register("prenom", { required: "Votre prenom est requis" })}
+            <InputForm
+              register={register}
+              errors={errors}
+              label={"prenom"}
+              msgError={"veuillez saisir votre Prenom"}
+              placeholder="votre prenom..."
             />
-            {errors.prenom && (
-              <p role="alert" className="text-red-500 text-xs italic mt-1">
-                {errors.prenom?.message}
-              </p>
-            )}
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-password"
-            >
-              Adress mail
-            </label>
-            <input
-              className="appearance-none bg-transparent border-b border-indigo-500 w-full text-gray-700 mr-3 p-4 leading-tight focus:outline-none focus:bg-gray-200"
-              type="text"
-              id="email"
-              {...register("email", { required: "Votre email est requis" })}
-              placeholder="exemple@exp.com"
-              aria-label="Full name"
+            <InputForm
+              register={register}
+              errors={errors}
+              label={"email"}
+              msgError={"veuillez saisir votre email"}
+              placeholder="votre email..."
             />
-            {errors.email && (
-              <p role="alert" className="text-red-500 text-xs italic mt-1">
-                {errors.email?.message}
-              </p>
-            )}
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-password"
-            >
-              Votre message
-            </label>
-            <textarea
-              rows={10}
-              className="appearance-none bg-transparent border-b border-indigo-500 w-full text-gray-700 mr-3 p-4 focus:bg-gray-200 leading-tight focus:outline-none"
-              type="email"
-              id="msg"
-              {...register("msg", { required: "Votre msg est requis" })}
-              placeholder=""
-              aria-label="Full name"
+            <InputTextArea
+              register={register}
+              errors={errors}
+              label={"msg"}
+              msgError={"veuillez saisir votre message"}
+              placeholder="votre message..."
             />
-            {errors.msg && (
-              <p role="alert" className="text-red-500 text-xs italic mt-1">
-                {errors.msg?.message}
-              </p>
-            )}
           </div>
 
           <div className="flex sm:justify-end lg:justify-between  md:justify-end justify-end  flex-wrap gap-3 w-full px-3 mt-4">
