@@ -7,6 +7,7 @@ export const InputForm = ({
   label,
   msgError,
   placeholder,
+  isdisabled,
 }) => {
   return (
     <>
@@ -22,6 +23,7 @@ export const InputForm = ({
         id={`${label}`}
         placeholder={placeholder}
         aria-label="Full name"
+        disabled={isdisabled}
         {...register(`${label}`, { required: `${msgError}` })}
       />
       {errors[`${label}`] && (
@@ -39,6 +41,7 @@ export const InputTextArea = ({
   label,
   msgError,
   placeholder,
+  isdisabled,
 }) => {
   return (
     <>
@@ -55,6 +58,7 @@ export const InputTextArea = ({
         id="msg"
         {...register(`${label}`, { required: `${msgError}` })}
         placeholder={placeholder}
+        disabled={isdisabled}
       />
       {errors.msg && (
         <p role="alert" className="text-red-500 text-xs italic mt-1">

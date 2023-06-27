@@ -14,8 +14,12 @@ const ContactForm = () => {
   } = useForm();
 
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [sending, setSending] = useState(false);
+  const [serverMessage, setServerMessage] = useState("");
 
   const onSubmit = async (data) => {
+    setSending(true);
+    setServerMessage();
     const formData = { ...data, filesAttachments: [] };
 
     try {
@@ -31,12 +35,17 @@ const ContactForm = () => {
           "Content-Type": "application/json",
         },
       });
+
       // Handle successful submission
     } catch (error) {
-      console.log(error);
+      setServerMessage(error.response.data.msg);
+      error.response.data.msg;
       // Handle error
     }
+    setServerMessage("message envoyez avec succes");
+
     reset();
+    setSending(false);
   };
 
   const handleFileChange = (event) => {
@@ -66,7 +75,10 @@ const ContactForm = () => {
   return (
     <>
       <form className="md:col-span-8 p-10" onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-wrap -mx-3 mb-6">
+        <div
+          className="flex flex-wrap -mx-3 mb-6"
+          onClick={() => setServerMessage()}
+        >
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <InputForm
               register={register}
@@ -74,6 +86,7 @@ const ContactForm = () => {
               label={"nom"}
               msgError={"veuillez saisir votre nom"}
               placeholder="votre nom..."
+              disabled={sending}
             />
           </div>
 
@@ -84,6 +97,7 @@ const ContactForm = () => {
               label={"prenom"}
               msgError={"veuillez saisir votre Prenom"}
               placeholder="votre prenom..."
+              disabled={sending}
             />
           </div>
         </div>
@@ -95,6 +109,7 @@ const ContactForm = () => {
               label={"email"}
               msgError={"veuillez saisir votre email"}
               placeholder="votre email..."
+              disabled={sending}
             />
           </div>
         </div>
@@ -106,6 +121,7 @@ const ContactForm = () => {
               label={"msg"}
               msgError={"veuillez saisir votre message"}
               placeholder="votre message..."
+              disabled={sending}
             />
           </div>
 
@@ -123,6 +139,7 @@ const ContactForm = () => {
                 multiple
                 {...register("filesAttachments")}
                 onChange={handleFileChange} // Added onChange event handler
+                disabled={sending}
               />
             </div>
             <div className="w-full flex justify-end">
@@ -133,6 +150,16 @@ const ContactForm = () => {
                 Envoyez
               </button>
             </div>
+            {serverMessage != "message envoyez avec succes" && (
+              <p role="alert" className="text-red-500 text-xs italic mt-1">
+                {serverMessage}
+              </p>
+            )}{" "}
+            {serverMessage == "message envoyez avec succes" && (
+              <p role="alert" className="text-green-500 mt-1">
+                {serverMessage}
+              </p>
+            )}
           </div>
         </div>
       </form>
