@@ -48,7 +48,7 @@ export const POST = async (req, res) => {
     });
 
     try {
-      // let info = await transporter.sendMail(message);
+      let info = await transporter.sendMail(message);
 
       return NextResponse.json(
         { msg: "Email envoyez avec success" },

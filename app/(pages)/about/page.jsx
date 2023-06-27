@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <div>
       <div className=" w-full h-96 flex justify-center items-center ">
-        <div className="bg-gradient-to-r from-blue-400 to-blue-600 w-full h-96 flex justify-center items-center relative">
+        <div className="w-full h-96 flex justify-center items-center relative">
           <div
             className="bg-center bg-cover w-full h-96"
             style={{ backgroundImage: " url('images_/tram2.jpg') " }}
