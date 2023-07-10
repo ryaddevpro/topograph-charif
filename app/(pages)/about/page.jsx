@@ -1,7 +1,13 @@
 import ContactUs from "@/app/components/ContactUs";
+import QuelqueChifre from "@/app/components/QuelqueChifre";
+import { BoxMotion } from "@/app/components/boxMotion/BoxMotion";
 import Image from "next/image";
 export const metadata = {
   title: "About",
+};
+const squareVariants = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, scale: 0 },
 };
 export default function Page() {
   return (
@@ -40,20 +46,23 @@ export default function Page() {
           />
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <BoxMotion variants={squareVariants} initial="hidden">
+        <QuelqueChifre />
+      </BoxMotion>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <ContactUs />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <br />
       <br />
       <br />
