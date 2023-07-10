@@ -27,7 +27,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="flex justify-around gap-5 my-36 flex-wrap">
+      <div className="flex justify-around gap-5 mt-36 flex-wrap">
         <div className="w-80">
           <div>
             <h1 className="text-4xl">Mot Du Directeur</h1>
