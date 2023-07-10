@@ -13,8 +13,21 @@ const CardChoice = () => {
     {
       name: "Photogrammetrie",
       image: "/images_/photogrametrie.png",
-      text: ``,
-      list: [``],
+      text: `
+      <p><br>Proc&eacute;dant avec une vision globale du territoire, notre &eacute;quipe ma&icirc;trise parfaitement les outils d&rsquo;aide &agrave; la d&eacute;cision d&eacute;di&eacute;e exclusivement aux &eacute;tudes fonci&egrave;res, au cadastre, et &agrave; l&rsquo;immobilier notamment la copropri&eacute;t&eacute; ,l&rsquo;expropriation, les pr&eacute; notations et la taxe sur Terrain-Non-B&acirc;ti (T.N.B).<br>Nos prestations de la topographie cadastrale couvrent la r&eacute;alisation de :</p>
+      <ul class="list-disc mx-10">
+          <li>Plan de situation, Plan de d&eacute;limitation administrative, Plan de partage</li>
+          <li>Plan et enqu&ecirc;te parcellaire</li>
+          <li>Immatriculation fonci&egrave;re</li>
+          <li>Immatriculation fonci&egrave;re et Immatriculation Fonci&egrave;re d&rsquo;Ensemble (IFE)</li>
+          <li>Mise en concordance,Copropri&eacute;t&eacute; et Morcellement</li>
+          <li>Lotissement et Groupement d&rsquo;Habitation</li>
+          <li>Expropriation (D&eacute;claration d&rsquo;utilit&eacute; publique, acte de cessibilit&eacute;, etc&hellip;)</li>
+          <li>Taxe T.N.B (accompagnement technique)</li>
+          <li>Mod&eacute;lisation de processus</li>
+      </ul>
+       `,
+      list: [`list`],
     },
     {
       name: "Scan et modélisation 3D",
